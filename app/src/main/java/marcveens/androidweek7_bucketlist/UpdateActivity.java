@@ -25,7 +25,7 @@ public class UpdateActivity extends AppCompatActivity {
         mInputTitle = findViewById(R.id.inputTitle);
         mInputDescription = findViewById(R.id.inputDescription);
         final BucketListItem bucketUpdate = getIntent().getParcelableExtra(MainActivity.UPDATE_BUCKET_ITEM);
-        final Integer insertOrUpdate = getIntent().getIntExtra(MainActivity.INSERT_OR_UPDATE, MainActivity.TASK_UPDATE_BUCKET_ITEMS);
+        final boolean shouldUpdate = getIntent().getBooleanExtra(MainActivity.UPDATE, true);
 
         if (bucketUpdate != null) {
             mInputTitle.setText(bucketUpdate.getTitle());
@@ -49,7 +49,7 @@ public class UpdateActivity extends AppCompatActivity {
 
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra(MainActivity.UPDATE_BUCKET_ITEM, bucketUpdate);
-                resultIntent.putExtra(MainActivity.INSERT_OR_UPDATE, insertOrUpdate);
+                resultIntent.putExtra(MainActivity.UPDATE, shouldUpdate);
                 setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }

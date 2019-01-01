@@ -12,14 +12,14 @@ import java.util.List;
 @Dao
 public interface BucketDao {
     @Query("SELECT * FROM bucketItem")
-    public LiveData<List<BucketListItem>> getAll();
+    LiveData<List<BucketListItem>> getAll();
 
     @Insert
-    public void insert(BucketListItem item);
+    void insert(BucketListItem item);
 
     @Delete
-    public void delete(BucketListItem item);
+    void delete(BucketListItem item);
 
     @Update
-    public void update(BucketListItem item);
+    void update(BucketListItem item);
 }
